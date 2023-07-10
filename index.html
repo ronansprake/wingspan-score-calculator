@@ -21,6 +21,7 @@
 			.rows {padding: 0;}
 			.group-label { font-size: 16px; margin: 0; padding: 5px 10px; background-color: #DDD; }
 			.row-label { font-size: 15px; width: 80px; margin: 13px 0; }
+			.no-margin-top { margin-top: 0; }
 			.counter, .initials, .score, .total-score { font-size: 32px; }
 			h1, .rows label { text-indent: -99em; position: absolute; width: 0; height: 0; }
 			button { background: none; width: 40px; height: 40px; font-size: 24px; border: none; cursor: pointer; line-height: 38px; }
@@ -95,10 +96,10 @@
 
 
 		<div class="player-multi">
-			<h2 class="group-label">Player initials</h2>
-			<ul class="rows">
+			<h2 class="group-label hide">Player initials</h2>
+			<ul class="rows no-margin-top">
 				<li class="row">
-					<div class="row-label">&nbsp;</div>
+					<div class="row-label">Player</div>
 					<div class="initials player-1">
 						<label for="player-1-initials">Player 1 initials</label>
 						<input id="player-1-initials" type="text" value="" maxlength="2" />
