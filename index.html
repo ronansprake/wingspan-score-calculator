@@ -342,7 +342,7 @@
 					<button class="js-increment" data-row="6" data-player="5" tabindex="-1">+</button>
 				</div>
 			</li>
-			<li class="row end js-row">
+			<li class="row js-row">
 				<h3 class="row-label">Tucked</h3>
 				<div class="counter player-1">
 					<label for="player-1-tucked">Player 1</label>
@@ -381,6 +381,48 @@
 					<button class="js-increment" data-row="7" data-player="5" tabindex="-1">+</button>
 				</div>
 		 </li>
+		</ul>
+		<h2 class="group-label">Each habitat 5/2</h2>
+		<ul class="rows">
+			<li class="row end js-row">
+				<h3 class="row-label player-1">Nectar</h3>
+				<div class="counter">
+					<label for="player-1-nectar">Player 1</label>
+					<button class="js-decrement" data-row="8" data-player="1" tabindex="-1">&ndash;</button>
+					<input id="player-1-nectar" type="number" min="0" class="js-score" data-row="8" data-player="1" value="0" />
+					<button class="js-increment" data-row="8" data-player="1" tabindex="-1">+</button>
+				</div>
+				<div class="counter player-a">
+					<label for="player-a-nectar">Automa</label>
+					<button class="js-decrement" data-row="8" data-player="a" tabindex="-1">&ndash;</button>
+					<input id="player-a-nectar" type="number" min="0" class="js-score" data-row="8" data-player="a" value="0" />
+					<button class="js-increment" data-row="8" data-player="a" tabindex="-1">+</button>
+				</div>
+				<div class="counter player-2">
+					<label for="player-2-nectar">Player 2</label>
+					<button class="js-decrement" data-row="8" data-player="2" tabindex="-1">&ndash;</button>
+					<input id="player-2-nectar" type="number" min="0" class="js-score" data-row="8" data-player="2" value="0" />
+					<button class="js-increment" data-row="8" data-player="2" tabindex="-1">+</button>
+				</div>
+				<div class="counter player-3">
+					<label for="player-3-nectar">Player 3</label>
+					<button class="js-decrement" data-row="8" data-player="3" tabindex="-1">&ndash;</button>
+					<input id="player-3-nectar" type="number" min="0" class="js-score" data-row="8" data-player="3" value="0" />
+					<button class="js-increment" data-row="8" data-player="3" tabindex="-1">+</button>
+				</div>
+				<div class="counter player-4">
+					<label for="player-4-nectar">Player 4</label>
+					<button class="js-decrement" data-row="8" data-player="4" tabindex="-1">&ndash;</button>
+					<input id="player-4-nectar" type="number" min="0" class="js-score" data-row="8" data-player="4" value="0" />
+					<button class="js-increment" data-row="8" data-player="4" tabindex="-1">+</button>
+				</div>
+				<div class="counter player-5">
+					<label for="player-5-nectar">Player 5</label>
+					<button class="js-decrement" data-row="8" data-player="5" tabindex="-1">&ndash;</button>
+					<input id="player-5-nectar" type="number" min="0" class="js-score" data-row="8" data-player="5" value="0" />
+					<button class="js-increment" data-row="8" data-player="5" tabindex="-1">+</button>
+				</div>
+			</li>
 		</ul>
 		<div class="total-scores js-total-scores">
 			<h3 class="row-label">Totals</h3>
@@ -439,12 +481,12 @@
 						body.dataset.players = player.value;
 					}
 					// Reset scores on change of player count
-					elemScores.forEach((elemScore) => {
-						elemScore.value = 0;
-					});
-					elemBonuses.forEach((elemBonus) => {
-						elemBonus.innerHTML = '';
-					});
+					// elemScores.forEach((elemScore) => {
+					// 	elemScore.value = 0;
+					// });
+					// elemBonuses.forEach((elemBonus) => {
+					// 	elemBonus.innerHTML = '';
+					// });
 					updateTotalScore();
 				});
 			});
