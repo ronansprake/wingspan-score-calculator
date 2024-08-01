@@ -58,6 +58,10 @@
 			.players li input[type="radio"]:checked + label { border: 1px solid var(--main-color); background: #EEE; color: var(--main-color); }
 			.players li input[type="radio"]:checked + label span { color: var(--main-color); }
 			label { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+			.player-multi { margin: 0; padding-top: 10px; background-color: #F6F6F6; z-index: 1; }
+			body:not([data-players="1"]).fixed { padding-top: 114px; }
+			body:not([data-players="1"]).fixed .player-multi { position: fixed; top: 0; width: 100%; max-width: 360px; }
+			body:not([data-players="1"]).fixed .player-multi .row.end { margin-bottom: 0; }
 			body[data-players="1"] .player-multi { display: none; }
 			body[data-players="2"] .initials { margin: 0 40px; }
 			body[data-players="2"] .player-a, body[data-players="3"] .player-a, body[data-players="4"] .player-a, body[data-players="5"] .player-a { display: none; }
@@ -73,7 +77,7 @@
 		</style>
 	</head>
 
-	<body data-players="1">
+	<body data-players="2">
 		<div class="wrap">
 		<h1>Wingspan score calculator</h1>
 
@@ -81,11 +85,11 @@
 		<legend>Players</legend>
 		<ul>
 			<li>
-				<input type="radio" name="player" id="players-1" value="1" class="js-player-switch" checked tabindex="1">
+				<input type="radio" name="player" id="players-1" value="1" class="js-player-switch" tabindex="1">
 				<label for="players-1">1</label>
 			</li>
 			<li>
-				<input type="radio" name="player" id="players-2" value="2" class="js-player-switch" tabindex="2">
+				<input type="radio" name="player" id="players-2" value="2" class="js-player-switch" checked tabindex="2">
 				<label for="players-2">2</label>
 			</li>
 			<li>
@@ -104,7 +108,7 @@
 		</fieldset>
 
 
-		<div class="player-multi">
+		<div class="player-multi js-player-multi">
 			<h2 class="group-label hide">Player initials</h2>
 			<ul class="rows no-margin-top">
 				<li class="row">
@@ -480,6 +484,19 @@
 			const elemIncrements = document.querySelectorAll('.js-increment');
 			const elemDecrements = document.querySelectorAll('.js-decrement');
 
+			let scrollPos = window.scrollY
+			const fixedHeader = document.querySelector('.js-player-multi')
+			const fixedHeaderTop = fixedHeader.offsetTop
+
+			const fixPlayerInitials = () => body.classList.add("fixed")
+			const unfixPlayerInitials = () => body.classList.remove("fixed")
+
+			window.addEventListener('scroll', function() { 
+				scrollPos = window.scrollY;
+				if (scrollPos >= fixedHeaderTop) { fixPlayerInitials() }
+				else { unfixPlayerInitials() }
+			});
+
 			document.oncontextmenu = function() {
 				return false;
 			}
@@ -506,7 +523,11 @@
 					if (!elemScore.value) {
 						elemScore.value = 0;
 					}
-					updateTotalScore();
+				});
+				elemScore.addEventListener('input', (e) => {
+					if (elemScore.value) {
+						updateTotalScore();
+					}
 				});
 				elemScore.addEventListener('focus', (e) => {
 				elemScore.select();
@@ -530,7 +551,8 @@
 						scoreInput.value = parseInt(scoreInput.value) + 1
 					}
 				}
-				scoreInput.dispatchEvent(new Event('change'));
+	            scoreInput.dispatchEvent(new Event('change'));
+	            scoreInput.dispatchEvent(new Event('input'));
 				updateTotalScore();
 			}
 
