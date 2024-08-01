@@ -59,7 +59,7 @@
 			.players li input[type="radio"]:checked + label span { color: var(--main-color); }
 			label { -webkit-tap-highlight-color: rgba(0,0,0,0); }
 			.player-multi { margin: 0; padding-top: 10px; background-color: #F6F6F6; z-index: 1; }
-			body:not([data-players="1"]).fixed { padding-top: 114px; }
+			body:not([data-players="1"]).fixed { padding-top: 116px; }
 			body:not([data-players="1"]).fixed .player-multi { position: fixed; top: 0; width: 100%; max-width: 360px; }
 			body:not([data-players="1"]).fixed .player-multi .row.end { margin-bottom: 0; }
 			body[data-players="1"] .player-multi { display: none; }
@@ -484,22 +484,18 @@
 			const elemIncrements = document.querySelectorAll('.js-increment');
 			const elemDecrements = document.querySelectorAll('.js-decrement');
 
-			let scrollPos = window.scrollY
-			const fixedHeader = document.querySelector('.js-player-multi')
-			const fixedHeaderTop = fixedHeader.offsetTop
-
-			const fixPlayerInitials = () => body.classList.add("fixed")
-			const unfixPlayerInitials = () => body.classList.remove("fixed")
+			const fixedHeader = document.querySelector('.js-player-multi');
+			const fixPlayerInitials = () => body.classList.add("fixed");
+			const unfixPlayerInitials = () => body.classList.remove("fixed");
+			
+			let scrollPos = window.scrollY;
+			let fixedHeaderTop = fixedHeader.offsetTop;
 
 			window.addEventListener('scroll', function() { 
 				scrollPos = window.scrollY;
 				if (scrollPos >= fixedHeaderTop) { fixPlayerInitials() }
 				else { unfixPlayerInitials() }
 			});
-
-			document.oncontextmenu = function() {
-				return false;
-			}
 
 			// Switch player
 			players.forEach((player) => {
@@ -551,8 +547,8 @@
 						scoreInput.value = parseInt(scoreInput.value) + 1
 					}
 				}
-	            scoreInput.dispatchEvent(new Event('change'));
-	            scoreInput.dispatchEvent(new Event('input'));
+				scoreInput.dispatchEvent(new Event('change'));
+				scoreInput.dispatchEvent(new Event('input'));
 				updateTotalScore();
 			}
 
