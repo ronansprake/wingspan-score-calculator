@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Wingspan score calculator</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<meta name="description" content="A score calculator for the board game Wingspan, including scoring for one to five players">
 		<link rel="shortcut icon" href="/images/favicon.ico">
 		<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,12 +24,12 @@
 			}
 			* { font-family: 'Open Sans', sans-serif; font-weight: 600; color: var(--main-color); box-sizing: border-box; touch-action: manipulation; }
 			body { background-color: #F6F6F6; margin: 0; padding: 40px 0; position: relative; }
-			.wrap { max-width: 400px; padding: 0 20px; margin: 0 auto; }
+			.wrap { max-width: 400px; min-width: 300px; padding: 0 20px; margin: 0 auto; }
 			.hide { text-indent: -99em; position: absolute; left: -9999px; width: 0; height: 0; }
 			.visually-hidden { visibility: hidden; }
 			.rows {padding: 0;}
 			.group-label { font-size: 16px; margin: 0; padding: 5px 10px; background-color: #DDD; }
-			.row-label { font-size: 15px; width: 80px; margin: 13px 0; }
+			.row-label { font-size: 15px; width: 80px; margin: 10px 0; }
 			.no-margin-top { margin-top: 0; }
 			.counter, .initials, .score, .total-score { font-size: 32px; }
 			h1, .rows label { text-indent: -99em; position: absolute; width: 0; height: 0; }
@@ -47,9 +47,9 @@
 			.total-score { width: 120px; text-align: center;}
 			.players { border: 0; padding: 0; font-size: 14px; margin: 0; }
 			.players legend { position: absolute; top: -999px; }
-			.players ul { overflow: hidden; position: relative; display: block; list-style: none; margin: 0 0 40px; padding: 0; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; }
+			.players ul { overflow: hidden; position: relative; display: block; list-style: none; margin: 0 0 30px; padding: 0; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; }
 			.players li { width: 50%; }
-			.players label { border: 1px solid #DDD; display: block; background: #FFF; color: #999; padding: 6px 10px; margin-bottom: 5px; cursor: pointer; transition: .2s background; position: relative; text-align: center; }
+			.players label { border: 1px solid #DDD; display: block; background: #FFF; color: #999; padding: 6px 10px; line-height: 21px; margin: 0; cursor: pointer; transition: .2s background; position: relative; text-align: center; }
 			.players span { color: #999; }
 			.players li:first-child label { border-radius: 4px 0 0 4px; border-right-color: #FFF; }
 			.players li:last-child label { border-radius: 0 4px 4px 0; }
@@ -58,9 +58,10 @@
 			.players li input[type="radio"]:checked + label { border: 1px solid var(--main-color); background: #EEE; color: var(--main-color); }
 			.players li input[type="radio"]:checked + label span { color: var(--main-color); }
 			label { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-			.player-multi { margin: 0; padding-top: 10px; background-color: #F6F6F6; z-index: 1; }
-			body:not([data-players="1"]).fixed { padding-top: 116px; }
-			body:not([data-players="1"]).fixed .player-multi { position: fixed; top: 0; width: 100%; max-width: 360px; }
+			.player-multi { margin: 0; padding-top: 20px; background-color: #F6F6F6; z-index: 1; }
+			body:not([data-players="1"]).fixed { padding-top: 120px; }
+			body:not([data-players="1"]).fixed .player-multi { position: fixed; top: 0; left: 0; width: 100%; }
+			body:not([data-players="1"]).fixed .player-multi .rows { max-width: 400px; padding: 0 20px; margin: 0 auto; }
 			body:not([data-players="1"]).fixed .player-multi .row.end { margin-bottom: 0; }
 			body[data-players="1"] .player-multi { display: none; }
 			body[data-players="2"] .initials { margin: 0 40px; }
