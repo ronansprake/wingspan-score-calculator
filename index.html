@@ -520,12 +520,9 @@
 					if (!elemScore.value) {
 						elemScore.value = 0;
 					}
-					updateTotalScore();
 				});
 				elemScore.addEventListener('input', (e) => {
-					if (elemScore.value) {
-						updateTotalScore();
-					}
+					updateTotalScore();
 				});
 				elemScore.addEventListener('focus', (e) => {
 				elemScore.select();
@@ -577,22 +574,22 @@
 				var scorePlayer4 = 0;
 				var scorePlayer5 = 0;
 				elemScoresPlayer1.forEach((elemScore) => {
-					scorePlayer1 += parseInt(elemScore.value);
+					scorePlayer1 += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemScoresAutoma.forEach((elemScore) => {
-					scoreAutoma += parseInt(elemScore.value);
+					scoreAutoma += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemScoresPlayer2.forEach((elemScore) => {
-					scorePlayer2 += parseInt(elemScore.value);
+					scorePlayer2 += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemScoresPlayer3.forEach((elemScore) => {
-					scorePlayer3 += parseInt(elemScore.value);
+					scorePlayer3 += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemScoresPlayer4.forEach((elemScore) => {
-					scorePlayer4 += parseInt(elemScore.value);
+					scorePlayer4 += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemScoresPlayer5.forEach((elemScore) => {
-					scorePlayer5 += parseInt(elemScore.value);
+					scorePlayer5 += parseInt(Number.isInteger(parseInt(elemScore.value)) ? elemScore.value : '0');
 				});
 				elemBonusesPlayer1.forEach((elemBonus) => {
 					if (elemBonus.innerHTML) {
