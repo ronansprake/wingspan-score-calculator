@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
+import PlayerToggle from './components/PlayerToggle.jsx'
 
 function App() {
+
+  const [players, setPlayers] = useState(2);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="wrap">
+      <h1>Wingspan score calculator</h1>
+      <PlayerToggle players={players} setPlayers={setPlayers} />{players}
     </div>
   );
 }
