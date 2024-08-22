@@ -4,7 +4,7 @@ export default function FixedHeader() {
   const fixPlayerInitials = () => body.classList.add('fixed');
   const unfixPlayerInitials = () => body.classList.remove('fixed');
 
-  if (fixedHeader.length) {
+  if (fixedHeader) {
     let scrollPos = window.scrollY;
     let fixedHeaderTop = fixedHeader.offsetTop;
 
