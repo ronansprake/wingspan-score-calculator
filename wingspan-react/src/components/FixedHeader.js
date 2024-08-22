@@ -1,10 +1,10 @@
 export default function FixedHeader() {
-  const body = document.querySelector("body");
+  const body = document.querySelector('body');
   const fixedHeader = document.querySelector('.js-player-multi');
-  const fixPlayerInitials = () => body.classList.add("fixed");
-  const unfixPlayerInitials = () => body.classList.remove("fixed");
+  const fixPlayerInitials = () => body.classList.add('fixed');
+  const unfixPlayerInitials = () => body.classList.remove('fixed');
 
-  if (fixedHeader) {
+  if (fixedHeader.length) {
     let scrollPos = window.scrollY;
     let fixedHeaderTop = fixedHeader.offsetTop;
 
