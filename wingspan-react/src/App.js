@@ -20,7 +20,7 @@ function App() {
   const changeScore = (row, player, val) => {
     const copy = [...currentScores];
     val = parseInt(val,10);
-    if (val < 0) { val = 0 };
+    if (val < 0 || !val) { val = 0 };
     copy[row-1][player-1] = val;
     setCurrentScores(copy);
   };

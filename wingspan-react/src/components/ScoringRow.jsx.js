@@ -28,7 +28,7 @@ function PlayerInitialControl({label, player, row, currentScores, changeScore, i
     <div className="counter player-{player}">
       <label htmlFor={"player-" + player + "-" + label}>Player {player}</label>
       <button onClick={() => {!isDisabled && changeScore(row,player,parseInt(currentScores[row-1][player-1]) - 1)}} className="js-decrement" data-player={row + "-" + player} tabIndex="-1">&ndash;</button>
-      <input onChange={(e) => {changeScore(row,player,(e.target.value > 0 ? e.target.value : 0))}} id={"player-" + player + "-" + label} type="number" className="js-score" {...props} />
+      <input onChange={(e) => {changeScore(row,player,(e.target.value))}} id={"player-" + player + "-" + label} onContextMenu={(e)=> e.preventDefault()} onFocus={(e)=> { e.target.select(); }} type="number" className="js-score" {...props} />
       <button onClick={() => {!isDisabled && changeScore(row,player,parseInt(currentScores[row-1][player-1]) + 1)}} className="js-increment" tabIndex="-1">+</button>
     </div>
   );
