@@ -1,8 +1,6 @@
-import { useState } from 'react';
-
 export default function ScoringRow({rowLabel, currentPlayerCount, currentScores, changeScore, rowNumber, disabled}) {
   const rows = [];
-  if (currentPlayerCount == 1) {
+  if (currentPlayerCount === 1) {
     currentPlayerCount = 2;
   } else {
     disabled = false
@@ -10,7 +8,7 @@ export default function ScoringRow({rowLabel, currentPlayerCount, currentScores,
   for (var i = 1; i <= currentPlayerCount; i++) {
     const input = [
       i,
-      i == disabled
+      i === disabled
     ]
     rows.push(input);
   }
@@ -25,7 +23,7 @@ export default function ScoringRow({rowLabel, currentPlayerCount, currentScores,
 function PlayerInitialControl({label, player, row, currentScores, changeScore, isDisabled, ...props}) {
 
   return (
-    <div className="counter player-{player}">
+    <div className="counter">
       <label htmlFor={"player-" + player + "-" + label}>Player {player}</label>
       <button onClick={() => {!isDisabled && changeScore(row,player,parseInt(currentScores[row-1][player-1]) - 1)}} className="js-decrement" data-player={row + "-" + player} tabIndex="-1">&ndash;</button>
       <input onChange={(e) => {e.target.value = e.target.value ? parseInt(e.target.value, 10) : ''; changeScore(row,player,(e.target.value))}} id={"player-" + player + "-" + label} onContextMenu={(e)=> e.preventDefault()} onFocus={(e)=> { e.target.select(); }} type="number" className="js-score" {...props} />

@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function PlayerInitialsDisplay({currentPlayerCount}) {
   const rows = [];
   for (var i = 1; i <= currentPlayerCount; i++) {

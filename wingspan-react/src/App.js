@@ -27,7 +27,7 @@ function App() {
 
   const getTotalScoreByPlayer = (player) => {
     let score = 0;
-    currentScores.map( (text) => { score += text[player] } );
+    currentScores.map( (text) => { return score += text[player] } );
     return score;
   };
 
@@ -65,7 +65,7 @@ function App() {
       <div className="total-scores">
         <TotalsRow currentPlayerCount={currentPlayerCount} getTotalScoreByPlayer={getTotalScoreByPlayer} />
       </div>
-      <p className="feedback"><a href="//ronansprake.co.uk/board-game-score-calculators#contact" target="_blank">Could this be better? Send me feedback</a></p>
+      <p className="feedback"><a href="//ronansprake.co.uk/board-game-score-calculators#contact" target="_blank" rel="noreferrer">Could this be better? Send me feedback</a></p>
     </div>
   );
 }

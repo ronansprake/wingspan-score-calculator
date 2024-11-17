@@ -1,5 +1,3 @@
-import { useState } from 'react';
-
 export default function PlayerCountDisplay({currentPlayerCount, setCurrentPlayerCount, resetScores}) {
   const rows = [];
   for (var i = 1; i < 6; i++) {
@@ -8,7 +6,7 @@ export default function PlayerCountDisplay({currentPlayerCount, setCurrentPlayer
   const handleOnClick = (text) => {
     setCurrentPlayerCount(text);
     setBodyData(text);
-    if (currentPlayerCount == 1 || text == 1) {
+    if (currentPlayerCount === 1 || text === 1) {
       resetScores();
     }
   };
@@ -16,7 +14,7 @@ export default function PlayerCountDisplay({currentPlayerCount, setCurrentPlayer
     <fieldset className="players">
       <legend>Players</legend>
       <ul>
-        { rows.map( (text) => <PlayerCountControl key={text} playerCount={text} onClick={() => {handleOnClick(text)}} isChecked={currentPlayerCount == text ? "active" : ""} /> ) }
+        { rows.map( (text) => <PlayerCountControl key={text} playerCount={text} onClick={() => {handleOnClick(text)}} isChecked={currentPlayerCount === text ? "active" : ""} /> ) }
       </ul>
     </fieldset>
   );
