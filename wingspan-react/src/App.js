@@ -59,8 +59,12 @@ function App() {
         <ScoringRow currentPlayerCount={currentPlayerCount} currentScores={currentScores} changeScore={changeScore} rowLabel="Tucked" rowNumber="7" disabled="2" />
       </ul>
       <h2 className="group-label">Each habitat 5/2</h2>
-      <ul className="rows end">
+      <ul className="rows">
         <ScoringRow currentPlayerCount={currentPlayerCount} currentScores={currentScores} changeScore={changeScore} rowLabel="Nectar" rowNumber="8" disabled="0" />
+      </ul>
+      <h2 className="group-label">Track total</h2>
+      <ul className="rows end">
+        <ScoringRow currentPlayerCount={currentPlayerCount} currentScores={currentScores} changeScore={changeScore} rowLabel="Hummingbird" rowNumber="9" disabled="0" />
       </ul>
       <div className="total-scores">
         <TotalsRow currentPlayerCount={currentPlayerCount} getTotalScoreByPlayer={getTotalScoreByPlayer} />
